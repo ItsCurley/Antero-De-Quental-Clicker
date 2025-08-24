@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://doknsto3a6bem"]
+
+[ext_resource type="Shader" uid="uid://v5j81u51x3xm" path="res://new_shader_material.gdshader" id="1_50bgh"]
+[ext_resource type="Texture2D" uid="uid://ceexti7623d61" path="res://Rainbow-gradient-fully-saturated.svg.png" id="2_cabul"]
+
+[resource]
+shader = ExtResource("1_50bgh")
+shader_parameter/palette = ExtResource("2_cabul")
+shader_parameter/grad_offset = 0.0
+shader_parameter/use_color_cycle = true

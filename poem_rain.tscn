@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qj4gqpdqvrk5"]
+
+[ext_resource type="Texture2D" uid="uid://lpx6u00evulp" path="res://Logic-poem-by-Sophie-Slosarczyk.png" id="1_qmpgp"]
+[ext_resource type="Script" uid="uid://7j5pdtd1p8bc" path="res://poem_rain.gd" id="2_5tb5w"]
+
+[node name="PoemRain" type="Sprite2D"]
+z_index = -2
+scale = Vector2(0.1975, 0.1975)
+texture = ExtResource("1_qmpgp")
+script = ExtResource("2_5tb5w")

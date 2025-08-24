@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://boxwq87ipgemx"]
+
+[ext_resource type="Script" uid="uid://bqbsx5owkl88d" path="res://poemspawner.gd" id="1_wqo6l"]
+
+[node name="Poemspawner" type="Timer"]
+wait_time = 2.0
+autostart = true
+script = ExtResource("1_wqo6l")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

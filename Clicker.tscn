@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo4duhvkl6i15"]
+
+[ext_resource type="Script" uid="uid://wbxupkvxknui" path="res://main.gd" id="1_lree6"]
+[ext_resource type="Texture2D" uid="uid://bh86l43xiwv62" path="res://Antero_de_Quental_(ca._1887).jpg" id="2_rdg0s"]
+[ext_resource type="Material" uid="uid://doknsto3a6bem" path="res://new_shader_material.tres" id="3_hhq75"]
+[ext_resource type="FontFile" uid="uid://p3s4u5d6wxx6" path="res://Minecraft.ttf" id="3_ts2ap"]
+[ext_resource type="FontFile" uid="uid://dqctqidxcytqb" path="res://comic-sans-ms/COMIC.TTF" id="4_ts2ap"]
+[ext_resource type="FontFile" uid="uid://myuepskdn36" path="res://comic-sans-ms/design.graffiti.comicsansms.ttf" id="6_3ojhx"]
+[ext_resource type="Texture2D" uid="uid://c8bqf8gr73hsx" path="res://Books_and_Scroll_Ornament_with_Open_Book(1).png" id="7_jtfk3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ojhx"]
+font = ExtResource("3_ts2ap")
+font_size = 22
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_20uw0"]
+font = ExtResource("4_ts2ap")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lree6")
+
+[node name="Antero" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.465997, 0.465997)
+texture = ExtResource("2_rdg0s")
+region_enabled = true
+region_rect = Rect2(125.03, 54.395, 422.38, 614.495)
+
+[node name="Antpanel" type="Panel" parent="Antero"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -210.0
+offset_top = -307.0
+offset_right = 210.0
+offset_bottom = 307.0
+mouse_default_cursor_shape = 2
+
+[node name="Counter" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 480.0
+offset_right = 674.0
+offset_bottom = 504.0
+text = "Anterocoin: 0"
+label_settings = SubResource("LabelSettings_3ojhx")
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+material = ExtResource("3_hhq75")
+offset_left = 264.0
+offset_top = 64.0
+offset_right = 888.0
+offset_bottom = 135.0
+text = "Antero de Quental Clicker"
+label_settings = SubResource("LabelSettings_20uw0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleShadow" type="Label" parent="Title"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 626.0
+offset_bottom = 73.0
+text = "Antero de Quental Clicker"
+label_settings = SubResource("LabelSettings_20uw0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PoemUpgrade" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 569.0
+offset_right = 230.0
+offset_bottom = 632.0
+mouse_default_cursor_shape = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_3ojhx")
+button_mask = 3
+text = "Write Poem - 0.5 AC/Sec
+50 Anterocoin"
+icon = ExtResource("7_jtfk3")
+flat = true
+
+[connection signal="gui_input" from="Antero/Antpanel" to="." method="_on_panel_gui_input"]
+[connection signal="pressed" from="PoemUpgrade" to="." method="_on_button_pressed"]
