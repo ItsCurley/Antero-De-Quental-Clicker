@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo4duhvkl6i15"]
+[gd_scene load_steps=20 format=3 uid="uid://b5w1mxde7eqru"]
 
 [ext_resource type="Script" uid="uid://wbxupkvxknui" path="res://main.gd" id="1_lree6"]
 [ext_resource type="Texture2D" uid="uid://bh86l43xiwv62" path="res://Antero_de_Quental_(ca._1887).jpg" id="2_rdg0s"]
@@ -7,6 +7,13 @@
 [ext_resource type="FontFile" uid="uid://dqctqidxcytqb" path="res://comic-sans-ms/COMIC.TTF" id="4_ts2ap"]
 [ext_resource type="FontFile" uid="uid://myuepskdn36" path="res://comic-sans-ms/design.graffiti.comicsansms.ttf" id="6_3ojhx"]
 [ext_resource type="Texture2D" uid="uid://c8bqf8gr73hsx" path="res://Books_and_Scroll_Ornament_with_Open_Book(1).png" id="7_jtfk3"]
+[ext_resource type="Script" uid="uid://b8v10p6xxkbn5" path="res://poem_upgrade.gd" id="8_jtfk3"]
+[ext_resource type="Texture2D" uid="uid://hk2s2shmipg8" path="res://soundguy.png" id="9_bwn7v"]
+[ext_resource type="AudioStream" uid="uid://bwlad3nbs7qbk" path="res://antero de quental_loop.wav" id="9_m82dl"]
+[ext_resource type="Script" uid="uid://c5pdf3ictawdx" path="res://audio_stream_player_2d.gd" id="10_8iuw0"]
+[ext_resource type="Script" uid="uid://0j1nqtdy57or" path="res://sound_crew_upgrade.gd" id="10_hjb1s"]
+[ext_resource type="Script" uid="uid://cn6jnjekht15m" path="res://audio_snatcher.gd" id="12_avhic"]
+[ext_resource type="Texture2D" uid="uid://bwdccigs2scjh" path="res://guyholdingmic.png" id="13_hjb1s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ojhx"]
 font = ExtResource("3_ts2ap")
@@ -21,11 +28,31 @@ font_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtfk3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtfk3"]
+bg_color = Color(0.29537, 0.242123, 0.178464, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.140447, 0.140447, 0.140447, 1)
+border_blend = true
+shadow_color = Color(0.0784314, 0.0784314, 0.0784314, 0.827451)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m82dl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lree6")
 
 [node name="Antero" type="Sprite2D" parent="."]
-position = Vector2(576, 320)
+position = Vector2(580, 318)
 scale = Vector2(0.465997, 0.465997)
 texture = ExtResource("2_rdg0s")
 region_enabled = true
@@ -77,18 +104,104 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PoemUpgrade" type="Button" parent="."]
-offset_left = 10.0
-offset_top = 569.0
-offset_right = 230.0
-offset_bottom = 632.0
+z_index = 1
+offset_left = 11.0
+offset_top = 570.0
+offset_right = 283.0
+offset_bottom = 633.0
 mouse_default_cursor_shape = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_3ojhx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jtfk3")
 button_mask = 3
-text = "Write Poem - 0.5 AC/Sec
-50 Anterocoin"
+text = "Write Poem - 50 AC"
 icon = ExtResource("7_jtfk3")
 flat = true
+script = ExtResource("8_jtfk3")
+
+[node name="Tooltip" type="Label" parent="PoemUpgrade"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 20.0
+offset_right = 390.0
+offset_bottom = 73.0
+theme_override_constants/outline_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtfk3")
+text = "Write a poem and earn minimum wage.
+\"why are poets depressed?\"
+0.5 AC/Sec"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="Panel" parent="PoemUpgrade"]
+z_as_relative = false
+layout_mode = 0
+offset_right = 272.0
+offset_bottom = 62.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m82dl")
+
+[node name="SoundCrewUpgrade" type="Button" parent="."]
+z_index = 1
+offset_left = 11.0
+offset_top = 493.0
+offset_right = 283.0
+offset_bottom = 555.0
+mouse_default_cursor_shape = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_3ojhx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jtfk3")
+button_mask = 3
+text = "Hire sound crew - 50 AC"
+icon = ExtResource("9_bwn7v")
+flat = true
+script = ExtResource("10_hjb1s")
+
+[node name="Tooltip" type="Label" parent="SoundCrewUpgrade"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = -46.0
+offset_right = 558.0
+offset_bottom = 85.0
+theme_override_constants/outline_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtfk3")
+text = "Hire a sound crew to record
+poems! But sometimes fake 
+sound crews show up!
+1.5x AC gain but sometimes 
+a fake crew member steals your AC!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="Panel" parent="SoundCrewUpgrade"]
+z_as_relative = false
+layout_mode = 0
+offset_right = 272.0
+offset_bottom = 62.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m82dl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(583, 322)
+stream = ExtResource("9_m82dl")
+autoplay = true
+max_distance = 4096.0
+script = ExtResource("10_8iuw0")
+
+[node name="AudioSnatcher" type="Node2D" parent="."]
+script = ExtResource("12_avhic")
+
+[node name="Guyholdingmic" type="Sprite2D" parent="AudioSnatcher"]
+position = Vector2(1511, 290)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("13_hjb1s")
+offset = Vector2(-499.3, 0)
+flip_h = true
 
 [connection signal="gui_input" from="Antero/Antpanel" to="." method="_on_panel_gui_input"]
+[connection signal="mouse_entered" from="PoemUpgrade" to="PoemUpgrade" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PoemUpgrade" to="PoemUpgrade" method="_on_mouse_exited"]
 [connection signal="pressed" from="PoemUpgrade" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SoundCrewUpgrade" to="SoundCrewUpgrade" method="_on_pressed"]

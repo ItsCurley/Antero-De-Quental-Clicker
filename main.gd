@@ -2,6 +2,7 @@ extends Node2D
 
 var poemspawner = preload("res://poemspawner.tscn")
 var Clicks = 0
+var Poems = 0
 
 func relabel():
 	$Counter.text = "Anterocoin: %s" %Clicks
@@ -22,5 +23,6 @@ func _process(delta):
 func _on_button_pressed() -> void:
 	if Clicks>=50:
 		Clicks=Clicks-50
+		Poems = Poems + 1
 		relabel()
 		add_child(poemspawner.instantiate())

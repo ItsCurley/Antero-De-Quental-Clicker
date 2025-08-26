@@ -10,11 +10,17 @@ config_version=5
 
 [application]
 
-config/name="ClickerGame"
-run/main_scene="res://Clicker.tscn"
+config/name="Antero De Quendal Clicker"
+run/main_scene="uid://b5w1mxde7eqru"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
+window/transparent_background=false
+window/hdr_2d=false
+
+[rendering]
+
+viewport/hdr_2d=true
