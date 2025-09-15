@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci27sil3pmjgc"]
+
+[ext_resource type="Texture2D" uid="uid://cb1q8bmypof81" path="res://anterocoin1.png" id="1_ah5qx"]
+[ext_resource type="Script" uid="uid://b531r2b8787mn" path="res://gpu_particles_2d.gd" id="2_ispy0"]
+
+[sub_resource type="Gradient" id="Gradient_1kbs8"]
+offsets = PackedFloat32Array(0, 0.822034, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e2c0d"]
+gradient = SubResource("Gradient_1kbs8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hsae6"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 230.77
+initial_velocity_max = 230.77
+gravity = Vector3(0, 500, 0)
+scale_min = 0.03
+scale_max = 0.03
+color_ramp = SubResource("GradientTexture1D_e2c0d")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+scale = Vector2(0.466, 0.466)
+emitting = false
+amount = 1
+texture = ExtResource("1_ah5qx")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_hsae6")
+script = ExtResource("2_ispy0")

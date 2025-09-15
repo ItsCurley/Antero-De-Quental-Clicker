@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://vu6sqitre61t"
+path="res://.godot/imported/guyholdingmicreversed.bmp-34f551888d20344d3e660bfdc074bd6c.res"
+
+[deps]
+
+source_file="res://guyholdingmicreversed.bmp"
+dest_files=["res://.godot/imported/guyholdingmicreversed.bmp-34f551888d20344d3e660bfdc074bd6c.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
